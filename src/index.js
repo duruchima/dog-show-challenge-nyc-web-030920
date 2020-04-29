@@ -26,20 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
     <td>${dog.sex}</td> 
     <td><button class='edit'>Edit</button></td></tr>`}
     
+    let editDog = false
+    const dogForm = document.getElementById('dog-form')
     const editBttn = Array.from(document.getElementsByClassName('edit'))
-    editBttn.forEach((event) => {
-        makeListener(event)
-    })
-    function makeListener (event){event.addEventListener('click', () => {
-        let editDog = false
-        console.log('listening')
-        const dogForm = document.getElementById('dog-form')
-        editDog = !editDog
-        if (editDog) {
-            dogForm.style.display = "block"
-        } else {
-            dogForm.style.display = "none"
-        }
+    editBttn.forEach((edit) => {
+        edit.addEventListener('click', () => {
+            console.log('listening')
+            editDog = !editDog
+            if (editDog) {
+                dogForm.style.display = "block"
+            } else {
+                dogForm.style.display = "none"
+            }
 
-    })}
+        })
+    })
+    
 })
